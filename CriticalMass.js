@@ -11,7 +11,7 @@ CriticalMass.loadModule = function(name, context, options, callback) {
 };
 
 require.config({
-    baseUrl: bundleBaseDirectory,
+    baseUrl: '/',
     paths:
     {
         "CalderaCityMapPage": bundleBaseDirectory + "js/modules/page/CalderaCityMapPage",
