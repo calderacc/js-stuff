@@ -23,7 +23,7 @@ define(['Map', 'leaflet-draw'], function () {
         $link = $('<link>', {
             rel: 'stylesheet',
             type: 'text/css',
-            href: '/bundles/calderacriticalmasssite/css/external/leaflet.draw.css'
+            href: bundleBaseDirectory + 'css/external/leaflet/leaflet.draw.css'
         });
 
         $link.appendTo('head');
