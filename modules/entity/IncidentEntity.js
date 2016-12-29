@@ -93,7 +93,7 @@ define(['CriticalService', 'leaflet', 'BaseEntity', 'leaflet-polyline', 'leaflet
         var focusButton = new ModalButton();
         focusButton.setCaption('Anzeigen');
         focusButton.setHref(url);
-        focusButton.setClass('btn-success');
+        focusButton.setClass('btn-primary btn-success');
 
         var that = this;
         focusButton.setOnClickEvent(function () {
