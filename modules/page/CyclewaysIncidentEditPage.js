@@ -111,7 +111,10 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         $('#incident_houseNumber').val('');
         $('#incident_suburb').val('');
         $('#incident_district').val('');
+        $('#incident_town').val('');
+        $('#incident_village').val('');
         $('#incident_zipCode').val('');
+        $('#incident_city').val('');
         $('#incident_latitude').val('');
         $('#incident_longitude').val('');
     };
@@ -121,6 +124,9 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         $('#incident_houseNumber').val(address.house_number);
         $('#incident_suburb').val(address.suburb);
         $('#incident_district').val(address.city_district);
+        $('#incident_village').val(address.village);
+        $('#incident_town').val(address.town);
+        $('#incident_city').val(address.city);
         $('#incident_zipCode').val(address.postcode);
     };
 
