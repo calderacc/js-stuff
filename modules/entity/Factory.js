@@ -36,11 +36,16 @@ define([], function () {
     };
 
     Factory.prototype.createCity = function (cityJson) {
-        var cityEntity = new CityEntity();
+        try {
+            var cityEntity = new CityEntity();
 
-        cityEntity = this._transferProperties(cityEntity, cityJson);
+            cityEntity = this._transferProperties(cityEntity, cityJson);
 
-        return cityEntity;
+            return cityEntity;
+        } catch (e) {
+            // if JSON could not be parsed it is maybe a string, so just return it
+            return cityJson;
+        }
     };
 
     Factory.prototype.createPhoto = function (photoJson) {
