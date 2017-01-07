@@ -190,8 +190,6 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
             return;
         }
 
-        this._geocoding.searchAddressForLatLng(latitude, longitude, this._updateAddress.bind(this));
-
         if ($('#incident_latitude').val() || $('#incident_longitude').val()) {
             return;
         }
@@ -202,9 +200,8 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         $('#incident_latitude').val(latLng.lat);
         $('#incident_longitude').val(latLng.lng);
         $('#incident_geometryType').val('marker');
-        
-        this._createIcon();
 
+        this._createIcon();
         this._drawnItems.clearLayers();
 
         var marker = L.marker(latLng, {
@@ -213,7 +210,9 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
 
         marker.addTo(this._drawnItems);
 
-        this._map.setView(latLng, 15);
+        this._map.setView(latLng, 18);
+
+        this._geocoding.searchAddressForLatLng(latitude, longitude, this._updateAddress.bind(this));
     };
 
     return CyclewaysIncidentEditPage;
