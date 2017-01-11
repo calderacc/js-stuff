@@ -114,7 +114,8 @@ require.config({
         "dateformat": bundleBaseDirectory + "js/external/dateformat/dateformat",
         "socketio": bundleBaseDirectory + "js/external/socketio/socketio",
         "chartjs": bundleBaseDirectory + "js/external/chartjs/chartjs",
-        "hammerjs": bundleBaseDirectory + "js/external/hammerjs/hammer.min"
+        "hammerjs": bundleBaseDirectory + "js/external/hammerjs/hammer.min",
+        "bootstrap-datepicker": bundleBaseDirectory + "js/external/bootstrap-datepicker/bootstrap-datepicker.min"
     },
     shim: {
         'leaflet-locate': {
