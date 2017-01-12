@@ -1,4 +1,4 @@
-define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers', 'leaflet-hash', 'Geocoding', 'IncidentMarkerIcon'], function (CriticalService) {
+define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers', 'leaflet-hash', 'Geocoding', 'IncidentMarkerIcon', 'bootstrap-datepicker'], function (CriticalService) {
     CyclewaysIncidentEditPage = function () {
         this._geocoding = new Geocoding();
         this._incidentMarkerIcon = new IncidentMarkerIcon();
@@ -7,6 +7,18 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         this._initMap();
         this._initDrawControl();
         this._initEventListeners();
+
+        $('.datepicker').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        $('#daterange').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true
+        });
     };
 
     CyclewaysIncidentEditPage.prototype._CriticalService = null;
