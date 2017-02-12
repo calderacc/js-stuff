@@ -1,4 +1,4 @@
-define(['Map', 'leaflet-polyline', 'leaflet-extramarkers', 'Container', 'jquery'], function () {
+define(['Map', 'leaflet-polyline', 'leaflet-extramarkers', 'Container', 'jquery', 'IncidentMarkerIcon'], function () {
     AutoMap = function (mapId, settings) {
         this._mapId = mapId;
 
@@ -70,23 +70,16 @@ define(['Map', 'leaflet-polyline', 'leaflet-extramarkers', 'Container', 'jquery'
     AutoMap.prototype._autoSetMarker = function () {
         var latitude = this._$mapContainer.data('map-marker-latitude');
         var longitude = this._$mapContainer.data('map-marker-longitude');
-
-        var markerColor = this._$mapContainer.data('map-marker-color') || 'yellow';
-        var markerShape = this._$mapContainer.data('map-marker-shape') || 'square';
-        var markerIcon = this._$mapContainer.data('map-marker-icon') || 'fa-bicycle';
         var markerClickable = this._$mapContainer.data('map-marker-clickable') || false;
 
-        if (latitude && longitude && markerColor && markerShape && markerIcon) {
-            var extraMarkerIcon = L.ExtraMarkers.icon({
-                icon: markerIcon,
-                markerColor: markerColor,
-                shape: markerShape,
-                prefix: 'fa'
-            });
+        var incidentType = this._$mapContainer.data('map-incident-type');
+        var dangerLevel = this._$mapContainer.data('map-danger-level');
 
-            var marker = L.marker([latitude, longitude], {icon: extraMarkerIcon, clickable: markerClickable});
-            marker.addTo(this.map);
-        }
+        var incidentMarkerIcon = new IncidentMarkerIcon();
+        var markerIcon = incidentMarkerIcon.createMarkerIcon(incidentType, dangerLevel);
+
+        var marker = L.marker([latitude, longitude], {icon: markerIcon, clickable: markerClickable});
+        marker.addTo(this.map);
     };
 
     AutoMap.prototype._autoSetPolylineMarker = function () {
